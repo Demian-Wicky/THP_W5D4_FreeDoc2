@@ -45,7 +45,7 @@ nb_doctor.times do |i|
     last_name: Faker::Name.last_name,
     zip_code: Faker::Address.zip_code,
     city_id: City.all.shuffle.last.id,
-    specialty: specialties.sample
+    # specialty: specialties.sample
   )
   # puts "Doctor n°#{i+1} created!"
 end
