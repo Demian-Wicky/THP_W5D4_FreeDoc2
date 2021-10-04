@@ -1,7 +1,7 @@
 Doctor.delete_all
 Patient.delete_all
 Appointment.delete_all
-# City.delete_all
+City.delete_all
 # Specialty.delete_all
 # JoinTableDoctorSpecialty.delete_all
 
@@ -11,7 +11,7 @@ Appointment.delete_all
 nb_doctor = 25
 nb_patient = 150
 nb_appointment = 30
-# nb_city = 10
+nb_city = 10
 # nb_join_table_doctor_specialty = nb_doctor + 20
 
 # ############################################
@@ -25,15 +25,16 @@ specialties = ["Accident and emergency medicine","Allergology","Anaesthetics","C
 #   puts "Specialty n°#{index+1} created!"
 # end
 
-############################################
+###########################################
 # CITIES
 
-# nb_city.times do |i|
-#   City.create!(
-#     name: Faker::Address.city,
-#   )
-#   puts "City n°#{i+1} created!"
-# end
+nb_city.times do |i|
+  City.create!(
+    name: Faker::Address.city,
+  )
+  # puts "City n°#{i+1} created!"
+end
+  puts "Cities created!"
 
 ############################################
 # DOCTORS
@@ -43,7 +44,7 @@ nb_doctor.times do |i|
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     zip_code: Faker::Address.zip_code,
-    # city_id: City.all.shuffle.last.id,
+    city_id: City.all.shuffle.last.id,
     specialty: specialties.sample
   )
   # puts "Doctor n°#{i+1} created!"
@@ -57,7 +58,7 @@ nb_patient.times do |i|
   Patient.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    # city_id: City.all.shuffle.last.id,
+    city_id: City.all.shuffle.last.id,
   )
   # puts "Patient n°#{i+1} created!"
 end
@@ -72,7 +73,7 @@ nb_appointment.times do |i|
     date: Faker::Time.between_dates(from: Date.today, to: Date.today + 365, period: :day),
     doctor_id: doctor.id,
     patient_id: Patient.all.shuffle.last.id,
-    # city_id: doctor.city_id,
+    city_id: doctor.city_id,
   )
   # puts "Apointment n°#{i+1} scheduled!"
 end
