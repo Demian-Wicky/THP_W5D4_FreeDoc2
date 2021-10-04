@@ -1,24 +1,62 @@
-# README
+# Freedoc (100% finished)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Ruby on Rails application inspired by Doctolib containing a relational database.
+The data comes from the `db>seeds.rb` file.
+<br><br>
+<img src="preview/Freedoc.svg" >
 
-Things you may want to cover:
+## Table of contents
 
-* Ruby version
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Setup](#setup)
 
-* System dependencies
+## General info
 
-* Configuration
+Made during [The Hacking Project](https://www.thehackingproject.org) course on Week5 Day4.
 
-* Database creation
+## Technologies
 
-* Database initialization
+Project is created with
 
-* How to run the test suite
+- Ruby on Rails 5.2.3
 
-* Services (job queues, cache servers, search engines, etc.)
+## Setup
 
-* Deployment instructions
+First, go to the RoR project folder and type:
 
-* ...
+```ruby
+bundle install
+```
+
+then enter the console:
+
+```ruby
+rails c
+```
+
+You can now display all the tables with the table_print gem
+
+```ruby
+tp City.all
+```
+
+```ruby
+tp Doctor.all
+```
+
+```ruby
+tp Patient.all
+```
+
+```ruby
+tp Appointment.all
+```
+
+```ruby
+tp Specialty.all
+```
+
+```ruby
+tp JoinTableDoctorSpecialty.all
+```
